@@ -11,10 +11,13 @@ data = {
     'age': 30, 
     'is_student': False
 }
-json_string= json.dumps(data)
+json_string= json.dumps(data, indent=4)
 print(json_string, type(json_string))
 
 
 with open('json_example.json', encoding='utf-8') as file:
     data= json.load(file)
     print (data)
+
+with open('data.json', 'w', encoding='utf-8') as file:
+    json.dump(data, file, indent=4, ensure_ascii=False)
