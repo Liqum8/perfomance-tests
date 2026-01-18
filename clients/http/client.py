@@ -3,7 +3,7 @@ from httpx import Client, URL, QueryParams, Response
 from typing import Any
 
 class HTTPClient:
-      """
+    """
     Базовый HTTP API клиент, принимающий объект httpx.Client.
 
     :param client: экземпляр httpx.Client для выполнения HTTP-запросов
@@ -20,7 +20,7 @@ class HTTPClient:
         :return: Объект Response с данными ответа.
         """
         return self.client.get(url, params=params)
-       
+
     def post(self, url: URL | str, json: Any | None = None) -> Response:
         """
         Выполняет POST-запрос.
@@ -30,6 +30,3 @@ class HTTPClient:
         :return: Объект Response с данными ответа.
         """
         return self.client.post(url, json=json)
-        
-
-    

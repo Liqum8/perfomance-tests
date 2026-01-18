@@ -4,6 +4,8 @@ from httpx import Response, QueryParams
 
 from typing import TypedDict
 
+from clients.http.gateway.client import build_gateway_http_client
+
 class GetOperationsQueryDict(TypedDict):
     """
     Структура query параметров запроса для получения списка операций по счёту.
@@ -183,3 +185,11 @@ class OperationsGatewayHTTPClient(HTTPClient):
         :return: Объект httpx.Response с результатом операции.
         """
         return self.post("/api/v1/operations/make-cash-withdrawal-operation", json=request)
+
+def build_operations_gateway_http_client() -> OperationsGatewayHTTPClient:
+      """
+    Функция создаёт экземпляр OperationsGatewayHTTPClient с уже настроенным HTTP-клиентом.
+
+    :return: Готовый к использованию OperationsGatewayHTTPClient.
+    """
+    return OperationsGatewayHTTPClient(client=build_gateway_http_client())
