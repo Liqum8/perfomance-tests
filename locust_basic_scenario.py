@@ -20,5 +20,3 @@ class BasicScenarioUser(HttpUser):
     @task(1)
     def delete_data(self):
         self.client.delete("/delete")
-
-
